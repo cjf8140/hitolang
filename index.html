@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>히토랭</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .switch-container {
+            margin-bottom: 20px;
+        }
+        
+        .switch-container label {
+            font-size: 16px;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        히토랭
+    </h1>
+    <h2>
+        만드는 법
+    </h2>
+    <h3>
+        1. 아스키 -> 바이너리 화
+    </h3>
+    참고:
+    <img src="image.png" alt="아스키테이블" width="100%">
+    <h3>
+        2. 패턴 치환
+    </h3>
+    <p id="replacements-list"></p>
+
+    <h3>
+        3. 나머지 치환
+    </h3>
+    <h4>
+        연속된 개수에 따라 다름
+    </h4>
+    0 -> 엑</br>
+    00 -> 응옥 </br>
+    000 -> 응오옥</br>
+    0000 -> 응오오옥</br>
+    ... </br>
+    1 -> 핫</br>
+    11 -> 하읏 </br>
+    111 -> 하으읏</br>
+    1111 -> 하으으읏</br>
+    ...
+
+    <h2>
+        해석하는 법
+    </h2>
+    <script src="script.js"></script>
+    <script>
+        window.onload = function() {
+
+            let pElement = document.getElementById("replacements-list");
+
+            // replacements 배열을 반복하여 각 항목을 <p>에 삽입
+            replacements.forEach(([pattern, text]) => {
+                let line = document.createElement("p");
+                line.innerHTML = `"${pattern}" -> "${text}"`;
+                pElement.appendChild(line);
+            });
+        };
+    </script>
+</body>
+
+</html>
