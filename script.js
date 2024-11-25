@@ -5,7 +5,7 @@ let replacements = [
     ["10", "아"],
 ];
 
-console.log(h("If You Read This, Send Dm Febell For Reward"))
+console.log(h("Hi"))
 
 function h(text) {
     let binaryString = textToBinaryString(text);
@@ -116,3 +116,19 @@ function textToBinaryString(text) {
 function binaryToText(binaryString) {
     return binaryString.match(/.{8}/g).map(byte => String.fromCharCode(parseInt(byte, 2))).join('');
 }
+
+// 실시간 암호화 및 복호화 처리
+const originalTextArea = document.getElementById("original-text");
+const hitolangTextArea = document.getElementById("hitolang-text");
+
+originalTextArea.addEventListener("input", function() {
+    const inputText = originalTextArea.value;
+    const encryptedText = h(inputText); // 암호화
+    hitolangTextArea.value = encryptedText;
+});
+
+hitolangTextArea.addEventListener("input", function() {
+    const inputText = hitolangTextArea.value;
+    const decryptedText = d(inputText); // 복호화
+    originalTextArea.value = decryptedText;
+});
